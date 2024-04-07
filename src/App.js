@@ -17,7 +17,7 @@ const App = ()=>{
   return (
    <>
    <image src={image_url} />
-   {/* <h1>Hello</h1> */}
+   <h1>Hello {name}</h1>
    <Heading/>
    <List/>
    </>
