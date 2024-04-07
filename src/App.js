@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Heading from "./Heading"
+import List from "./Components/List"
 
-function App() {
+// here App is a component which is added in index.js
+
+// const Heading = ()=>{
+//   return <h1>Hello this is intro to components</h1>
+// }
+
+const App = ()=>{
+
+  const name = "shivam";
+  const image_url ="https://picsum.photos/id/237/200/300" ;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <>
+   <image src={image_url} />
+   {/* <h1>Hello</h1> */}
+   <Heading/>
+   <List/>
+   </>
+  )
 }
 
 export default App;
