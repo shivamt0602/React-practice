@@ -12,14 +12,18 @@ const App = ()=>{
 
   return (
    <>
+   <nav>
    <div className='header-div'>
    <Header/>
    </div>
+   </nav>
+   <main>
    <div className='contacts'>
-    <Contacts name = "Shivam"/>
-    <Contacts name = "Shahil"/>
-    <Contacts name = "Shivam"/>
+    <Contacts name = "shivam" number="xyz"/>
+    <Contacts name = "shahil" number="abc"/>
+    <Contacts name = "pranam" number="def"/>
    </div>
+   </main>
    </>
   )
 }

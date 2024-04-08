@@ -2,8 +2,9 @@ const Contacts = (props)=>{
     return (
         <>
         <div className="cards flex">
-            <div className="card-contact">
-                <h1>{props.name}</h1>
+            <div className="card-info">
+                <p>{props.name}</p>
+                <p>{props.number}</p>
             </div>
         </div>
         </>
