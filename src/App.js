@@ -1,8 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
-import Heading from "./Heading"
-import List from "./Components/List"
-
+import Header from "./Components/Header"
+import Contacts from "./Components/Contacts"
 // here App is a component which is added in index.js
 
 // const Heading = ()=>{
@@ -11,15 +10,16 @@ import List from "./Components/List"
 
 const App = ()=>{
 
-  const name = "shivam";
-  const image_url ="https://picsum.photos/id/237/200/300" ;
-
   return (
    <>
-   <image src={image_url} />
-   <h1>Hello {name}</h1>
-   <Heading/>
-   <List/>
+   <div className='header-div'>
+   <Header/>
+   </div>
+   <div className='contacts'>
+    <Contacts name = "Shivam"/>
+    <Contacts name = "Shahil"/>
+    <Contacts name = "Shivam"/>
+   </div>
    </>
   )
 }
