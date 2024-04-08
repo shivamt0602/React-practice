@@ -11,6 +11,12 @@ import contacts from "./ContactList"
 
 const App = ()=>{
 
+  const list = [1,2,3,4,5];
+
+  list.map((num)=>{
+    console.log(num);
+  })
+
   return (
    <>
    <nav>
@@ -20,9 +26,12 @@ const App = ()=>{
    </nav>
    <main>
    <div className='contacts'>
-    <Contacts name = {contacts[0].name} number={contacts[0].number}/>
-    <Contacts name = {contacts[1].name} number={contacts[1].number}/>
-    <Contacts name = {contacts[2].name} number={contacts[2].number}/>
+    {
+      contacts.map((details)=>{
+        return <Contacts key = {details.id} name={details.name} number={details.number}/>
+        // here,whenever a loop is used we should be using a key with it.
+      })
+    }
    </div>
    </main>
    </>
