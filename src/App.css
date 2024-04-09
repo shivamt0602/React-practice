@@ -2,42 +2,54 @@
   text-align: center;
 }
 
-nav{
-  width: 100%;
-  height: 100px;
-  background-color:#00308F;
+main{
   display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #6699CC;
   justify-content: center;
   align-items: center;
-  color: white;
-}
-
-main{
-  /* margin-top: 20px; */
-  height: 100vh;
-  width: 100%;
-  background-color:#F0F8FF;
-  display: flex;
 }
 
 .flex{
   display: flex;
 }
 
-.cards{
-  margin-top: 100px;
-  width: 100vw;
-  height: 200px;
-  align-items: center;
+.div-one{
+  height: 500px;
+  width:  700px;
+  background-color:#0a2351;
   justify-content: center;
-  /* background-color:#89CFF0; */
-  color:#00308F;
+  align-items: center;
+  border-radius: 20px;
+  color:#7CB9E8;
 }
 
-.card-info{
-  /* display: flex; */
-  height:200px;
-  background-color:#89CFF0;
-  width: 200px;
+input{
+  height: 30px;
+  display: block;
+  margin: 15px;
+  border-radius: 5px;
   text-align: center;
+}
+
+form{
+  text-align: center;
+}
+
+.btn-submit{
+  /* margin-top: 50px; */
+  background-color: blue;
+  color: white;
+  height:50px;
+  /* width: 30px; */
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.btn-submit:hover{
+  background-color:#7CB9E8;
+  color: #0a2351;
+  font-weight:bold;
 }

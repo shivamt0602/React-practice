@@ -3,6 +3,8 @@ import './App.css';
 import Header from "./Components/Header"
 import Contacts from "./Components/Contacts"
 import contacts from "./ContactList"
+import Login from "./Components/Login"
+
 // here App is a component which is added in index.js
 
 // const Heading = ()=>{
@@ -11,30 +13,24 @@ import contacts from "./ContactList"
 
 const App = ()=>{
 
-  const list = [1,2,3,4,5];
+  const boolean = false;
 
-  list.map((num)=>{
-    console.log(num);
-  })
-
-  return (
-   <>
-   <nav>
-   <div className='header-div'>
-   <Header/>
-   </div>
-   </nav>
-   <main>
-   <div className='contacts'>
-    {
-      contacts.map((details)=>{
-        return <Contacts key = {details.id} name={details.name} number={details.number}/>
-        // here,whenever a loop is used we should be using a key with it.
-      })
+  const renderCondiotionally = ()=>{
+    if(boolean){
+      return <h1>Hello</h1>
     }
-   </div>
-   </main>
-   </>
+    else{
+      return (
+        <Login/>
+      )
+    }
+  }
+  return (
+    <>
+    <main>
+    <div className='div-one flex'>{renderCondiotionally()}</div>
+    </main>
+    </>
   )
 }
 
