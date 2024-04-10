@@ -4,32 +4,23 @@ import Header from "./Components/Header"
 import Contacts from "./Components/Contacts"
 import contacts from "./ContactList"
 import Login from "./Components/Login"
+import { useState } from 'react';
 
 // here App is a component which is added in index.js
 
-// const Heading = ()=>{
-//   return <h1>Hello this is intro to components</h1>
-// }
 
 const App = ()=>{
+  // let count = 0;
+  const [count,setcount] = useState(0)
 
-  const boolean = false;
-
-  const renderCondiotionally = ()=>{
-    if(boolean){
-      return <h1>Hello</h1>
-    }
-    else{
-      return (
-        <Login/>
-      )
-    }
+  const increment = ()=>{
+    setcount(count+1)
   }
-  return (
+
+  return(
     <>
-    <main>
-    <div className='div-one flex'>{renderCondiotionally()}</div>
-    </main>
+    <h1>{count}</h1>
+    <button onClick={increment}>Add</button>
     </>
   )
 }
