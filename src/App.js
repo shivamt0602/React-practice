@@ -9,27 +9,31 @@ import { useState } from 'react';
 // here App is a component which is added in index.js
 
 
-const App = ()=>{
+const App = ()=>{ 
 
-  
-    setTimeout(()=>{
-      // SetTime(new Date().toLocaleTimeString())
-      getTime()
-    },1000)
-  
- 
-  const [time,SetTime] = useState(new Date().toLocaleTimeString()); 
+  const[userVal,SetuserVal] = useState("")
+  const[passVal,SetpassVal] = useState("")
 
-  const getTime = ()=>{
-    SetTime(new Date().toLocaleTimeString())
+  // const userId = document.getElementById("input-user")
+  // const PassId = document.getElementById("input-pass")
+
+  const ChangeUserVal = (event)=>{
+    SetuserVal(event.target.value);
   }
 
-  
+  const ChangePassVal = (event)=>{
+    SetpassVal(event.target.value);
+  }
+
 
   return(
     <>
-    <h1>{time}</h1>
-    <button onClick={getTime}>Time</button>
+    <h1>Hello {userVal} {passVal} </h1>
+    <form>
+      <input placeholder='userId' id="input-user" onChange={ChangeUserVal}></input>
+      <input placeholder='password' id="input-pass" onChange={ChangePassVal}></input>
+      <button>Login</button>
+    </form>
     </>
   )
 }
