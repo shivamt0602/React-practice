@@ -10,17 +10,26 @@ import { useState } from 'react';
 
 
 const App = ()=>{
-  // let count = 0;
-  const [count,setcount] = useState(0)
 
-  const increment = ()=>{
-    setcount(count+1)
+  
+    setTimeout(()=>{
+      // SetTime(new Date().toLocaleTimeString())
+      getTime()
+    },1000)
+  
+ 
+  const [time,SetTime] = useState(new Date().toLocaleTimeString()); 
+
+  const getTime = ()=>{
+    SetTime(new Date().toLocaleTimeString())
   }
+
+  
 
   return(
     <>
-    <h1>{count}</h1>
-    <button onClick={increment}>Add</button>
+    <h1>{time}</h1>
+    <button onClick={getTime}>Time</button>
     </>
   )
 }
