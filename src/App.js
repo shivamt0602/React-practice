@@ -11,48 +11,54 @@ import { useState } from 'react';
 
 const App = ()=>{
 
-  const [FullName,SetFullName] = useState({
-    fName : "",
-    lName : ""
+  const [Data,SetData] = useState({
+    fname : "",
+    lname : "",
+    Email : ""
   })
+ 
 
   const HandleChange = (event)=>{
 
-    const newValue = event.target.value
     const Name = event.target.name
+    const newVal = event.target.value
 
-    // if(Name == "first-name"){
-    //   SetFullName({fname : newValue})
-    //   console.log(event.target.value)
-    // }
-    // else{
-    //   SetFullName({lname : newValue})
-    //   console.log(event.target.value)
-    // }
-
-    SetFullName((prevVal)=>{
+    SetData((prevVal)=>{
       if(Name == "first-name"){
         return {
-          fname : newValue,
-          lname : prevVal.lname
+          fname : newVal,
+          lname : prevVal.lname,
+          Email : prevVal.Email
+        }
+      }
+      else if(Name == "last-name"){
+        return{
+          fname : prevVal.fname,
+          lname : newVal,
+          Email : prevVal.Email
         }
       }
       else{
         return {
-          lname : newValue,
-          fname : prevVal.fname
+          fname : prevVal.fname,
+          lname : prevVal.lname,
+          Email : newVal
         }
       }
     })
 
   }
 
+  
+
   return(
     <>
-    <h1>Hello {FullName.fname} {FullName.lname}</h1>
+    <h1>Hello {Data.fname} {Data.lname}</h1>
+    <p>{Data.Email}</p>
     <form>
       <input placeholder='First Name' id="Fname-Id" onChange={HandleChange} name="first-name"></input>
       <input placeholder='Last Name' id="Lname-Id" onChange={HandleChange} name = "last-name"></input>
+      <input placeholder='Email' id="Email-Id" onChange={HandleChange} name = "email-name"></input>
       <button>Login</button>
     </form>
     </>
