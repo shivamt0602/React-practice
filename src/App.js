@@ -17,18 +17,34 @@ const App = ()=>{
   })
 
   const HandleChange = (event)=>{
-    
+
     const newValue = event.target.value
     const Name = event.target.name
 
-    if(Name == "first-name"){
-      SetFullName({fname : newValue})
-      console.log(event.target.value)
-    }
-    else{
-      SetFullName({lname : newValue})
-      console.log(event.target.value)
-    }
+    // if(Name == "first-name"){
+    //   SetFullName({fname : newValue})
+    //   console.log(event.target.value)
+    // }
+    // else{
+    //   SetFullName({lname : newValue})
+    //   console.log(event.target.value)
+    // }
+
+    SetFullName((prevVal)=>{
+      if(Name == "first-name"){
+        return {
+          fname : newValue,
+          lname : prevVal.lname
+        }
+      }
+      else{
+        return {
+          lname : newValue,
+          fname : prevVal.fname
+        }
+      }
+    })
+
   }
 
   return(
