@@ -9,29 +9,34 @@ import { useState } from 'react';
 // here App is a component which is added in index.js
 
 
-const App = ()=>{ 
+const App = ()=>{
 
-  const[userVal,SetuserVal] = useState("")
-  const[passVal,SetpassVal] = useState("")
+  const [FullName,SetFullName] = useState({
+    fName : "",
+    lName : ""
+  })
 
-  // const userId = document.getElementById("input-user")
-  // const PassId = document.getElementById("input-pass")
+  const HandleChange = (event)=>{
+    
+    const newValue = event.target.value
+    const Name = event.target.name
 
-  const ChangeUserVal = (event)=>{
-    SetuserVal(event.target.value);
+    if(Name == "first-name"){
+      SetFullName({fname : newValue})
+      console.log(event.target.value)
+    }
+    else{
+      SetFullName({lname : newValue})
+      console.log(event.target.value)
+    }
   }
-
-  const ChangePassVal = (event)=>{
-    SetpassVal(event.target.value);
-  }
-
 
   return(
     <>
-    <h1>Hello {userVal} {passVal} </h1>
+    <h1>Hello {FullName.fname} {FullName.lname}</h1>
     <form>
-      <input placeholder='userId' id="input-user" onChange={ChangeUserVal}></input>
-      <input placeholder='password' id="input-pass" onChange={ChangePassVal}></input>
+      <input placeholder='First Name' id="Fname-Id" onChange={HandleChange} name="first-name"></input>
+      <input placeholder='Last Name' id="Lname-Id" onChange={HandleChange} name = "last-name"></input>
       <button>Login</button>
     </form>
     </>
