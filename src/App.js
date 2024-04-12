@@ -32,8 +32,11 @@ const App = ()=>{
   }
 
   useEffect(()=>{
-    console.log("rendered")
-  },[])
+    console.log("rendered when reference changed")
+    return(()=>{ // this runs first.
+      console.log("I'm being cleaned up")
+    })
+  },[Reference])
 
  
 
