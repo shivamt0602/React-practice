@@ -4,63 +4,47 @@ import Header from "./Components/Header"
 import Contacts from "./Components/Contacts"
 import contacts from "./ContactList"
 import Login from "./Components/Login"
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 // here App is a component which is added in index.js
 
 
 const App = ()=>{
 
-  const [Data,SetData] = useState({
-    fname : "",
-    lname : "",
-    Email : ""
-  })
- 
+
+  const[Reference,SetReference] = useState("Posts")
 
   const HandleChange = (event)=>{
 
+
     const Name = event.target.name
-    const newVal = event.target.value
+    const NewVal = event.target.value;
 
-    SetData((prevVal)=>{
-      if(Name == "first-name"){
-        return {
-          fname : newVal,
-          lname : prevVal.lname,
-          Email : prevVal.Email
-        }
-      }
-      else if(Name == "last-name"){
-        return{
-          fname : prevVal.fname,
-          lname : newVal,
-          Email : prevVal.Email
-        }
-      }
-      else{
-        return {
-          fname : prevVal.fname,
-          lname : prevVal.lname,
-          Email : newVal
-        }
-      }
-    })
-
+    if(Name == "post"){
+      SetReference("Posts")
+    }
+    else if(Name == "user"){
+      SetReference("Users")
+    }
+    else{
+      SetReference("Comments")
+    }
   }
 
-  
+  useEffect(()=>{
+    console.log("rendered")
+  },[])
+
+ 
 
   return(
     <>
-    <h1>Hello {Data.fname} {Data.lname}</h1>
-    <p>{Data.Email}</p>
-    <form>
-      <input placeholder='First Name' id="Fname-Id" onChange={HandleChange} name="first-name"></input>
-      <input placeholder='Last Name' id="Lname-Id" onChange={HandleChange} name = "last-name"></input>
-      <input placeholder='Email' id="Email-Id" onChange={HandleChange} name = "email-name"></input>
-      <button>Login</button>
-    </form>
+     <div>
+      <button onClick={HandleChange} name="post">Posts</button>
+      <button onClick={HandleChange} name="user">Users</button>
+      <button onClick={HandleChange} name="comment">Comments</button>
+     </div>
+     <h1>{Reference}</h1>
     </>
   )
 }
